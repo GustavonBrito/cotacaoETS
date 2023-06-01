@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/css.css" />
+    <script src="scripts/script.js" defer></script>
+
+    <!-- <script type="module" src="scripts/script.js" defer></script> -->
+    <title>Cotações</title>
+  </head>
+  <body>
+    <header id="header">
+      <div>
+        <img
+          src="./assets/ETS - Horizontal (azul escuro).png"
+          alt="Logo ETS"
+          width="25%"
+          height="150vh"
+        />
+      </div>
+    </header>
+    <main id="main">
+      <form action="/loadInfosFromUser" method="POST">
+        <div id="firstBox">
+          <!-- <img src="./assets/icons8-1-50.png" alt="" /> -->
+          <label for="" class="steps">1</label>
+          <select name="" id="" class="profileFirstField" required>
+            <option value="" disabled selected>Selecione o profile</option>
+            <option value="1000" id="1000">1000</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
+          <!-- <input
+            class="profileFirstField"
+            type="text"
+            id="title"
+            maxlength="256"
+            placeholder="Insira o profile"
+          /> -->
+        </div>
+        <div id="boxRadioInput">
+          <div id="secondBox">
+            <label for="" class="steps">2</label>
+            <select name="" id="" class="profileSecondField" required>
+              <option value="" disabled selected>Teste especial</option>
+              <option id="1000" class="profileSecondField">Sim</option>
+              <option class="profileSecondField">Não</option>
+            </select>
+            <!-- <input
+              class="profileSecondField"
+              type="text"
+              id="title"
+              maxlength="256"
+              placeholder="''Sim'' ou ''Não'' para teste especial"
+            /> -->
+          </div>
+          <div id="radioTestesEspeciais">
+            <input type="radio" id="html" />
+            <label for="html">Gravação</label><br />
+            <input type="radio" id="css" />
+            <label for="css">Teste especial</label><br />
+            <input type="radio" id="javascript" />
+            <label for="javascript">Teste especial</label>
+          </div>
+          <div id="radioTestesEspeciais2">
+            <input type="radio" id="html" />
+            <label for="html">Teste especial</label><br />
+            <input type="radio" id="css" />
+            <label for="css">Teste especial</label><br />
+            <input type="radio" id="javascript" />
+            <label for="javascript">Teste especial</label>
+          </div>
+        </div>
+        <div id="thirdBox">
+          <label for="" class="steps">3</label>
+          <input
+            class="profileThirdField"
+            type="text"
+            id="title"
+            maxlength="256"
+            placeholder="Quantidade de placas"
+          />
+        </div>
+        <div id="btnsSend">
+          <label for="" id="stepFour" class="steps">4</label>
+          <!-- <label for="" id="sendInformations">OK</label>
+          <input type="file" name="arquivo" id="arquivo" accept=".xml" /> -->
+          <label for="arquivo" id="fileIctCostModel1"
+            >Inserir "ict_cost_model"</label
+          >
+          <input type="file" name="arquivo" id="arquivo" accept=".xml" />
+          <button
+            for="arquivo"
+            id="fileIctCostModel"
+            onclick="selecionarArquivo()"
+          >
+            Inserir "ict_cost_model"
+          </button>
+          <button for="button" type="submit" id="btnDownload">
+            Baixar planilha
+          </button>
+          <input type="button" />
+        </div>
+        <div>
+          <label for="" class="steps">5</label>
+          <select name="" id="">
+            <option value=""></option>
+            <option value="1000" id="1000">1000</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+      </form>
+      <div>
+        <div id="dollarBox">
+          <p></p>
+        </div>
+        <div id="fcsBox">
+          <p>FCS 2023</p>
+          <p>2,5</p>
+        </div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div></div>
+    </footer>
+    <script src="tasks/baseURL.js"></script>
+  </body>
+</html>
