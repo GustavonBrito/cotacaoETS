@@ -6,7 +6,7 @@ const dataToConsult = require("../../routesOmie/structureConsultAPI");
 
 // Transforma o arquivos teste.xlsx em um arquivo baixável
 const getAll = async (req, res, next) => {
-  XlsxPopulate.fromFileAsync("teste.xlsx")
+  XlsxPopulate.fromFileAsync("StructureAndPrizes.xlsx")
     .then((workbook) => {
       // Make edits.
       //   workbook.sheet(0).cell("A1").value("foo");

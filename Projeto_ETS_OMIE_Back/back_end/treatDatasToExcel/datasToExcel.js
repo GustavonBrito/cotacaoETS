@@ -1,9 +1,9 @@
 const XlsxPopulate = require("xlsx-populate");
 
-let infoFromXml = require("../dataFromXml/dataFromXml");
+// let infoFromXml = require("../dataFromXml/dataFromXml");
 // const workbook = require("excel4node/distribution/lib/workbook");
 
-let teste = async (structure) => {
+let postInfoFromTreatDatas = async (structure) => {
   await run(structure);
 };
 
@@ -54,10 +54,10 @@ let run = (structure) => {
       // console.log(workbook);
       // return workbook;
       // Salva o arquivo pelo backend direto
-      return workbook.toFileAsync("teste.xlsx");
+      return workbook.toFileAsync("StructureAndPrizes.xlsx");
     });
   };
   return getTreatDatasFromAPI();
 };
 
-module.exports = { run, teste };
+module.exports = { run, postInfoFromTreatDatas };

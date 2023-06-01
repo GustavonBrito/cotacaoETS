@@ -1,5 +1,5 @@
 const priceConsult = require("./priceConsultAPI");
-const testefinal = require("../treatDatasToExcel/datasToExcel");
+const transferDatatoTreat = require("../treatDatasToExcel/datasToExcel");
 
 // const structureConsult = require("./structureConsultAPI");
 
@@ -58,6 +58,6 @@ async function treatAllDatas(structure) {
   //   return arrayStructPrices;
   // };
   await treatPricesandStructure();
-  testefinal.teste(receiveArrayStructPrices);
+  transferDatatoTreat.postInfoFromTreatDatas(receiveArrayStructPrices);
 }
 module.exports = { treatAllDatas, catchPostStructure };
