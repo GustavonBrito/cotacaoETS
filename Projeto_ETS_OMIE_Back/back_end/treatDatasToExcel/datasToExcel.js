@@ -1,12 +1,9 @@
 const XlsxPopulate = require("xlsx-populate");
 
-let structureWithPrices = require("../routesOmie/treatDatasFromAPI");
-
 let infoFromXml = require("../dataFromXml/dataFromXml");
 // const workbook = require("excel4node/distribution/lib/workbook");
 
 let teste = async (structure) => {
-  console.log(structure);
   await run(structure);
 };
 
@@ -14,7 +11,7 @@ let teste = async (structure) => {
 let run = (structure) => {
   async function getTreatDatasFromAPI() {
     let structureToExcel = await structure;
-    let workbook = await excelPopulate(structureToExcel);
+    await excelPopulate(structureToExcel);
     return structureToExcel;
   }
 
@@ -50,6 +47,7 @@ let run = (structure) => {
           .cell(3)
           .value("Total: " + (sum += arrayStructureforExcel[i].Preco));
       }
+
       // console.log(
       //   sheet.cell(cellColumnB[i]).value(arrayStructureforExcel[i].Qtd)
       // );
