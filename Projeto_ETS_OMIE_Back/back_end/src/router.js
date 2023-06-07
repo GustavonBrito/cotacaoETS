@@ -11,6 +11,14 @@ router.get("/downloadQuotation", task.getAll);
 
 // rota que carrega informações do usuario sobre estrutura desejada a ser requisitada
 
-router.post("/loadInfosFromUser", task.postInfos);
+router.post("/loadStructureInfosFromUser", task.postInfos);
+
+// rota que carrega o arquivo xml exportado pelo Aster
+
+router.post(
+  "/infoStructureInfosFromUser",
+  task.upload.single("xlsx"),
+  task.uploadIctcostmodel
+);
 
 module.exports = router;

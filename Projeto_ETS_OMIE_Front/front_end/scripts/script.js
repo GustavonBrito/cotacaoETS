@@ -1,11 +1,11 @@
 // const { config } = require("bower/lib");
 
 let btnDownload = document.getElementById("btnDownload");
-let xmlArchive = document.getElementById('input[type="file"]');
-let xmlFile = document.getElementById("sendArchive");
+let xmlArchive = document.getElementById("arquivo");
+// let xmlFile = document.getElementById("sendArchive");
 let dollarBox = document.getElementById("dollarBox");
 let firstInputBox = document.querySelector(".profileFirstField");
-let secondInputBox = document.getElementById("fileIctCostModel");
+let secondInputBox = document.getElementById("btnSend");
 let boxSegundoPasso = document.querySelector(".profileSecondField");
 let radio = document.querySelector("#radioTestesEspeciais"); // alterar nome da variavel para ficar legível
 let radioMoreTestes = document.querySelector("#radioTestesEspeciais2"); // alterar nome da variavel para ficar legível
@@ -70,15 +70,29 @@ let showDollar = (todaysDollar) => {
   dollarBox.innerHTML += `Dólar: ${todaysDollar}`;
 };
 
-// async function sendArchive() {
-//   const formData = new FormData();
-//   formData.append("arquivo", xmlArchive);
+// async function sendArchive(objArquivosUpload) {
+//   let configs = {
+//     method : "POST";
+//     headers : {
+//       "Content-type": "application/json",
+//   }
+//     body: objArquivosUpload
+//     const formData = new FormData();
+//     formData.append("arquivo", xmlArchive.files[0], "ict_cost_model");
+//   // const urlEnconded = new URLSearchParams();
+//   // formData.toString();
+//   // console.log(formData);
+//   // console.log(urlEnconded);
+//   // console.log(formData);
 
 //   try {
-//     const resposta = await fetch(`http://localhost:3333/uploadXml`, {
-//       method: "POST",
-//       body: formData,
-//     });
+//     const resposta = await fetch(
+//       `http://localhost:3333/infoStructureInfosFromUser`,
+//       {
+//         method: "POST",
+//         body: formData,
+//       }
+//     );
 
 //     const dados = await resposta.json();
 //     console.log(dados);
@@ -87,12 +101,10 @@ let showDollar = (todaysDollar) => {
 //   }
 // }
 
-// sendArchive();
-
-// secondInputBox.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   sendDataOfProfile(firstInputBox.value);
-// });
+secondInputBox.addEventListener("click", function (e) {
+  e.preventDefault();
+  sendDataOfProfile(firstInputBox.value);
+});
 
 let sendDataOfProfile = async (valor) => {
   let corpo = {
@@ -111,7 +123,10 @@ async function loginValida(objvalorCampos) {
     body: objvalorCampos,
   };
   try {
-    let requestProfile = await fetch(`${baseURL()}/loadInfosFromUser`, configs);
+    let requestProfile = await fetch(
+      `${baseURL()}/loadStructureInfosFromUser`,
+      configs
+    );
     if (requestProfile.status == 201) {
       let requestProfileResponse = await requestProfile.json();
       console.log(requestProfileResponse);

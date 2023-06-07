@@ -77,12 +77,11 @@ form {
 #btnDownload {
   cursor: pointer;
   width: 10%;
-  height: 5%;
+  height: 70%;
   border-radius: 10px;
   box-shadow: 10px 5px 5px black;
   background-color: grey;
   margin-top: 11px;
-  /* border: none; */
   color: black;
   font-size: 15px;
   justify-content: center;
@@ -91,6 +90,7 @@ form {
   color: white;
   word-wrap: wrap;
   transition: 1s;
+  margin-left: 10px;
 }
 #btnDownload:hover {
   color: black;
@@ -102,11 +102,11 @@ input[type="file"] {
 input[type="button"] {
   display: none;
 }
-#fileIctCostModel {
-  margin: 11px;
+#btnSend {
+  margin: 9px;
   cursor: pointer;
   width: 10%;
-  height: 5%;
+  height: 70%;
   background-color: grey;
   border-radius: 10px;
   box-shadow: 10px 5px 5px black;
@@ -118,7 +118,7 @@ input[type="button"] {
   word-wrap: wrap;
   transition: 1s;
 }
-#fileIctCostModel:hover {
+#btnSend:hover {
   color: black;
   transition: 1s;
 }
@@ -143,8 +143,7 @@ input[type="button"] {
   display: flex;
   margin-left: 400px;
 }
-#btnsSend {
-  height: 75%;
+#sendStep {
   display: flex;
 }
 #dollarBox {
@@ -180,9 +179,6 @@ input[type="button"] {
   height: 200px;
   background-color: red;
 }
-#fileIctCostModel1 {
-  display: none;
-}
 #radioTestesEspeciais {
   display: none;
 }
@@ -193,9 +189,6 @@ input[type="button"] {
   display: flex;
   color: white;
 }
-/* #boxRadioInput label {
-  background-color: grey;
-} */
 .steps {
   color: white;
   font-size: 38px;
@@ -205,4 +198,8 @@ input[type="button"] {
 #stepFour {
   margin-left: 405px;
   margin-top: 5px;
+}
+#downloadStep {
+  display: flex;
+  margin-left: 400px;
 }
