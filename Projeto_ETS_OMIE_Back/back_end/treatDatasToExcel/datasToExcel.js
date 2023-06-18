@@ -26,7 +26,7 @@ let run = (structure) => {
       sheet.name("planilha");
       sheet.row(1).cell(1).value("Part Numbers");
       sheet.row(1).cell(2).value("Quantidade");
-      sheet.row(1).cell(3).value("Preços");
+      sheet.row(1).cell(3).value("Preços com Fator 3");
       // Arrays que recebem posições das celulas no excel
       let cellColumnA = [];
       let cellColumnB = [];
@@ -47,7 +47,6 @@ let run = (structure) => {
           .cell(3)
           .value("Total: " + (sum += arrayStructureforExcel[i].Preco));
       }
-
       // console.log(
       //   sheet.cell(cellColumnB[i]).value(arrayStructureforExcel[i].Qtd)
       // );

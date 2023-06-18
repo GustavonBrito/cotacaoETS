@@ -203,3 +203,6 @@ input[type="button"] {
   display: flex;
   margin-left: 400px;
 }
+#warningStatusIct {
+  color: #fff;
+}

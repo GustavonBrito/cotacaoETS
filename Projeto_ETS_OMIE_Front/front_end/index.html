@@ -48,19 +48,19 @@
             </select>
           </div>
           <div id="radioTestesEspeciais">
-            <input type="radio" id="html" />
+            <input type="radio" id="html" type="text" />
             <label for="html">Gravação</label><br />
-            <input type="radio" id="css" />
+            <input type="radio" id="css" type="text" />
             <label for="css">Teste especial</label><br />
-            <input type="radio" id="javascript" />
+            <input type="radio" id="javascript" type="text" />
             <label for="javascript">Teste especial</label>
           </div>
           <div id="radioTestesEspeciais2">
-            <input type="radio" id="html" />
+            <input type="radio" id="html" type="text" />
             <label for="html">Teste especial</label><br />
-            <input type="radio" id="css" />
+            <input type="radio" id="css" type="text" />
             <label for="css">Teste especial</label><br />
-            <input type="radio" id="javascript" />
+            <input type="radio" id="javascript" type="text" />
             <label for="javascript">Teste especial</label>
           </div>
         </div>
@@ -77,11 +77,11 @@
         <div id="sendStep">
           <label for="" id="stepFour" class="steps">4</label>
           <input
-            onchange="sendArchive()"
             type="file"
             name="arquivo"
             id="arquivo"
             accept=".xml"
+            onchange="sendArchiveXML()"
           />
           <button
             for="arquivo"
@@ -92,14 +92,14 @@
             Inserir "ict_cost_model"
           </button>
           <p id="stepFive" class="steps">5</p>
-          <button for="button" type="submit" id="btnDownload">
+          <button for="button" id="btnDownload" type="submit">
             Baixar planilha
           </button>
           <input type="button" />
         </div>
-        <div id="downloadStep"></div>
       </form>
       <div>
+        <!-- <p id="warningStatusIct"></p> -->
         <div id="dollarBox">
           <p></p>
         </div>

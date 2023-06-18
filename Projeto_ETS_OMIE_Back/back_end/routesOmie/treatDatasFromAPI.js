@@ -1,7 +1,16 @@
 const priceConsult = require("./priceConsultAPI");
 const transferDatatoTreat = require("../treatDatasToExcel/datasToExcel");
-
-// const structureConsult = require("./structureConsultAPI");
+let test;
+// // const structureConsult = require("./structureConsultAPI");
+let readWorkbook = (sheet) => {
+  // sheet.forEach((number, index, array) => {
+  //   // console.log("Index: " + index + " Value: " + number);
+  //   console.log(array);
+  // });
+  test = sheet;
+  return test;
+  // addStructurePrices(sheet[2].__EMPTY_5);
+};
 
 let catchPostStructure = async (structure) => {
   await treatAllDatas(structure);
@@ -39,7 +48,7 @@ async function treatAllDatas(structure) {
         (price) => price.PartNumber === arrayStructure[i].PartNumber
       );
       if (arrayStructure[i].Qtd == 0.1) {
-        arrayStructure[i].Qtd = 2;
+        arrayStructure[i].Qtd = test[2].__EMPTY_5;
       }
       if (matchingPrice) {
         arrayStructure[i].Preco =
@@ -51,7 +60,7 @@ async function treatAllDatas(structure) {
       structure.Preco = parseFloat(structure.Preco.toFixed(2));
     });
     receiveArrayStructPrices = arrayStructure;
-    console.log(receiveArrayStructPrices);
+    // console.log(receiveArrayStructPrices);
     return receiveArrayStructPrices;
   };
   // let exportData = (arrayStructPrices) => {
@@ -60,4 +69,4 @@ async function treatAllDatas(structure) {
   await treatPricesandStructure();
   transferDatatoTreat.postInfoFromTreatDatas(receiveArrayStructPrices);
 }
-module.exports = { treatAllDatas, catchPostStructure };
+module.exports = { treatAllDatas, catchPostStructure, readWorkbook };
