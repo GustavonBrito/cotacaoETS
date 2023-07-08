@@ -47,9 +47,9 @@ async function treatAllDatas(structure) {
       let matchingPrice = arrayPrices.find(
         (price) => price.PartNumber === arrayStructure[i].PartNumber
       );
-      if (arrayStructure[i].Qtd == 0.1) {
-        arrayStructure[i].Qtd = test[2].__EMPTY_5;
-      }
+      // if (arrayStructure[i].Qtd == 0.1) {
+      //   arrayStructure[i].Qtd = test[2].__EMPTY_5;
+      // }
       if (matchingPrice) {
         arrayStructure[i].Preco =
           parseFloat(matchingPrice.Preco) * 3 * arrayStructure[i].Qtd;

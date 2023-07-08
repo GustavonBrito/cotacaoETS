@@ -50,7 +50,6 @@ let run = (structure) => {
       // console.log(
       //   sheet.cell(cellColumnB[i]).value(arrayStructureforExcel[i].Qtd)
       // );
-      // console.log(workbook);
       // return workbook;
       // Salva o arquivo pelo backend direto
       return workbook.toFileAsync("StructureAndPrizes.xlsx");
@@ -58,5 +57,4 @@ let run = (structure) => {
   };
   return getTreatDatasFromAPI();
 };
-
 module.exports = { run, postInfoFromTreatDatas };

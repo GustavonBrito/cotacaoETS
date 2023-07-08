@@ -32,7 +32,6 @@ async function structureConsult(body) {
 
   try {
     let apiResponse = await fetch(`${baseURL}/geral/malha/`, request);
-    // console.log(apiResponse);
 
     if (apiResponse.status == 200) {
       let finalResponse = await apiResponse.json();

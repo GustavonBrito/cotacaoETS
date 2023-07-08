@@ -3,7 +3,7 @@ let xmlArchive = document.getElementById("arquivo");
 let warningStatusIct = document.getElementById("warningStatusIct");
 let dollarBox = document.getElementById("dollarBox");
 let firstInputBox = document.querySelector(".profileFirstField");
-let secondInputBox = document.getElementById("btnSend");
+let btnSendAsterArchive = document.getElementById("btnSend");
 let boxSegundoPasso = document.querySelector(".profileSecondField");
 let radio = document.querySelector("#radioTestesEspeciais"); // alterar nome da variavel para ficar legível
 let radioMoreTests = document.querySelector("#radioTestesEspeciais2"); // alterar nome da variavel para ficar legível
@@ -22,7 +22,7 @@ boxSegundoPasso.addEventListener("click", function () {
   }
 });
 
-secondInputBox.addEventListener("click", function (e) {
+btnSendAsterArchive.addEventListener("click", function (e) {
   e.preventDefault();
 });
 

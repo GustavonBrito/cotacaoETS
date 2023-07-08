@@ -126,10 +126,9 @@ input[type="button"] {
   margin-right: 30px;
 }
 #firstBox {
-  margin: 10px;
+  margin-left: 89px;
   width: 25%;
   display: flex;
-  margin-right: 300px;
 }
 #secondBox {
   margin: 10px;
@@ -138,10 +137,10 @@ input[type="button"] {
   margin-left: 200px;
 }
 #thirdBox {
-  margin: 10px;
+  /*   margin: 10px; */
   width: 25%;
   display: flex;
-  margin-left: 400px;
+  margin-left: 305px;
 }
 #sendStep {
   display: flex;
@@ -206,3 +205,13 @@ input[type="button"] {
 #warningStatusIct {
   color: #fff;
 }
+#projectName {
+  display: flex;
+  width: 25%;
+  margin: 10px;
+}
+/* .projectName input {
+  margin: 10px;
+  width: 25%;
+  display: flex;
+} */

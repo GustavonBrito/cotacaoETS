@@ -29,18 +29,23 @@
     </header>
     <main id="main">
       <form enctype="multipart/form-data">
+        <div id="projectName">
+          <label for="" class="steps">1</label>
+          <input type="text" maxlength="256" placeholder="Nome do projeto" />
+        </div>
         <div id="firstBox">
           <!-- <img src="./assets/icons8-1-50.png" alt="" /> -->
-          <label for="" class="steps">1</label>
+          <label for="" class="steps">2</label>
           <select name="" id="" class="profileFirstField" required>
             <option value="" disabled selected>Selecione o profile</option>
             <option value="1000">1000</option>
             <option value="109325141">109325141</option>
+            <option value="110007406">110007406</option>
           </select>
         </div>
         <div id="boxRadioInput">
           <div id="secondBox">
-            <label for="" class="steps">2</label>
+            <label for="" class="steps">3</label>
             <select name="" id="" required class="profileSecondField">
               <option value="" disabled selected>Teste especial</option>
               <option id="1000" class="profileSecondField">Sim</option>
@@ -65,9 +70,8 @@
           </div>
         </div>
         <div id="thirdBox">
-          <label for="" class="steps">3</label>
+          <label for="" class="steps">4</label>
           <input
-            class="profileThirdField"
             type="text"
             id="title"
             maxlength="256"
@@ -75,7 +79,7 @@
           />
         </div>
         <div id="sendStep">
-          <label for="" id="stepFour" class="steps">4</label>
+          <label for="" id="stepFour" class="steps">5</label>
           <input
             type="file"
             name="arquivo"
@@ -91,7 +95,7 @@
           >
             Inserir "ict_cost_model"
           </button>
-          <p id="stepFive" class="steps">5</p>
+          <p id="stepFive" class="steps">6</p>
           <button for="button" id="btnDownload" type="submit">
             Baixar planilha
           </button>

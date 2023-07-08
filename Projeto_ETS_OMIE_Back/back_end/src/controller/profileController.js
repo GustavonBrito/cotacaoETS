@@ -26,7 +26,7 @@ const uploadIctcostmodel = async (req, res, next) => {
     // console.log(xmlData);
     // Process the XML data as needed
     readWorkbook.readWorkbook(xmlData);
-    console.log(xmlData);
+    // console.log(xmlData);
     res.status(200).json({
       message: "XML data read successfully",
     });
@@ -44,27 +44,24 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
-// Transforma o arquivos teste.xlsx em um arquivo baixável
 const getAll = async (req, res, next) => {
-  XlsxPopulate.fromFileAsync("StructureAndPrizes.xlsx")
-    .then((workbook) => {
-      // Make edits.
-      //   workbook.sheet(0).cell("A1").value("foo");
-      // Get the output
+  try {
+    let workbook = await XlsxPopulate.fromFileAsync("StructureAndPrizes.xlsx");
+    // console.log(workbook);
 
-      return workbook.outputAsync();
-    })
-    .then((data) => {
-      // Set the output file name.
-      // console.log(res.attachment());
-      res.attachment("pivot.xlsx");
-      // console.log(res);
-      // console.log(data);
-      // Send the workbook.
+    // Realizar edições no workbook, se necessário.
+    // workbook.sheet(0).cell("A1").value("foo");
 
-      res.send(data);
-    })
-    .catch(next);
+    let data = await workbook.outputAsync();
+    console.log(data);
+    // Definir o nome do arquivo de saída.
+    res.attachment("pivot.xlsx");
+
+    // Enviar o workbook como resposta.
+    await res.send(data);
+  } catch (error) {
+    next(error);
+  }
 };
 let postInfos = async (req, res, next) => {
   try {
