@@ -8,6 +8,7 @@ let readWorkbook = (sheet) => {
   //   console.log(array);
   // });
   test = sheet;
+  // console.log(test);
   return test;
   // addStructurePrices(sheet[2].__EMPTY_5);
 };
@@ -39,6 +40,8 @@ async function treatAllDatas(structure) {
         Preco: null,
       };
     });
+    let profileName = productStructure;
+    console.log(profileName.ident.codProduto);
     return addStructurePrices(arrayStructure, arrayPrices);
   };
 

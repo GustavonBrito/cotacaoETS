@@ -9,6 +9,14 @@ app.use(
   })
 );
 
+// app.use((req, res, next) => {
+//   res.setHeader(
+//     "Cache-Control",
+//     "no-store, no-cache, must-revalidate, private"
+//   );
+//   next();
+// });
+
 app.use(express.json());
 app.use(router);
 

@@ -71,11 +71,14 @@ async function sendArchiveXML() {
   const formData = new FormData();
   formData.append("xlsx", xmlArchive.files[0], "arquivo");
 
-  let sla = fetch(`http://localhost:3333/infoStructureInfosFromUser`, {
-    method: "POST",
-    body: formData,
-  });
-  if ((await sla).status == 200) {
+  let responseFromBack = fetch(
+    `http://localhost:3333/infoStructureInfosFromUser`,
+    {
+      method: "POST",
+      body: formData,
+    }
+  );
+  if ((await responseFromBack).status == 200) {
     alert("Requisição feita com sucesso !");
     // warningStatusIct.innerHTML += "Requisição feita com sucesso !";
   } else {
@@ -85,21 +88,22 @@ async function sendArchiveXML() {
   }
 }
 
-let profileOrderFromUser = async (valor) => {
-  let corpo = {
-    profile: valor,
+let profileOrderFromUser = async (value) => {
+  let body = {
+    profile: value,
   };
-  let corpoJSON = JSON.stringify(corpo);
-  sendDataProfile(corpoJSON);
+  let bodyJSON = JSON.stringify(body);
+  sendDataProfile(bodyJSON);
 };
 
-async function sendDataProfile(objvalorCampos) {
+async function sendDataProfile(valueObjCamp) {
   let configs = {
+    cache: "no-store",
     method: "POST",
     headers: {
       "Content-type": "application/json",
     },
-    body: objvalorCampos,
+    body: valueObjCamp,
   };
   try {
     let requestProfile = await fetch(
@@ -112,7 +116,7 @@ async function sendDataProfile(objvalorCampos) {
     } else {
       throw requestProfile;
     }
-  } catch (erro) {
-    profileErro(erro);
+  } catch (error) {
+    profileError(error);
   }
 }
