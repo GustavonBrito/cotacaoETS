@@ -41,7 +41,7 @@ async function treatAllDatas(structure) {
       };
     });
     let profileName = productStructure;
-    console.log(profileName.ident.codProduto);
+    // console.log(profileName.ident.codProduto);
     return addStructurePrices(arrayStructure, arrayPrices);
   };
 

@@ -98,7 +98,6 @@ let profileOrderFromUser = async (value) => {
 
 async function sendDataProfile(valueObjCamp) {
   let configs = {
-    cache: "no-store",
     method: "POST",
     headers: {
       "Content-type": "application/json",
@@ -110,10 +109,7 @@ async function sendDataProfile(valueObjCamp) {
       `${baseURL()}/loadStructureInfosFromUser`,
       configs
     );
-    if (requestProfile.status == 201) {
-      let requestProfileResponse = await requestProfile.json();
-      console.log(requestProfileResponse);
-    } else {
+    {
       throw requestProfile;
     }
   } catch (error) {

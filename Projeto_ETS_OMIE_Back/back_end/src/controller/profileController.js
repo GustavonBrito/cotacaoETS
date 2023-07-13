@@ -1,4 +1,4 @@
-require("../../treatDatasToExcel/datasToExcel");
+let run = require("../../treatDatasToExcel/datasToExcel");
 const XlsxPopulate = require("xlsx-populate");
 // const bodyParser = require("body-parser");
 // require("body-parser-xml")(bodyParser);
@@ -44,25 +44,9 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
-const getAll = async (req, res, next) => {
-  try {
-    let workbook = await XlsxPopulate.fromFileAsync("StructureAndPrizes.xlsx");
-    // console.log(workbook);
-
-    // Realizar edições no workbook, se necessário.
-    // workbook.sheet(0).cell("A1").value("foo");
-
-    let data = await workbook.outputAsync();
-    console.log(data);
-    // Definir o nome do arquivo de saída.
-    res.attachment("pivot.xlsx");
-
-    // Enviar o workbook como resposta.
-    await res.send(data);
-  } catch (error) {
-    next(error);
-  }
-};
+// XlsxPopulate.fromFileAsync("StructureAndPrizes.xlsx").then((response) => {
+//   console.log(response._sharedStrings._stringArray);
+// });
 let postInfos = async (req, res, next) => {
   try {
     /* const infoProfile = */ await dataToConsult.sendData(req.body);
@@ -73,5 +57,36 @@ let postInfos = async (req, res, next) => {
     next(error);
   }
 };
+const getAll = async (req, res, next) => {
+  try {
+    // if (condition) {
+    // } else {
+    // }
+    let workbook = await XlsxPopulate.fromFileAsync("StructureAndPrizes.xlsx");
+    console.log(workbook._sharedStrings._stringArray);
+    // console.log(workbook);
 
-module.exports = { getAll, postInfos, uploadIctcostmodel, upload };
+    // Realizar edições no workbook, se necessário.
+    // workbook.sheet(0).cell("A1").value("foo");
+    let bufferSize = 500;
+    let data = await workbook.outputAsync();
+    let totalChunks = Math.ceil(data.length / bufferSize);
+    let chunks = [];
+    for (let i = 0; i < totalChunks; i++) {
+      const start = i * bufferSize;
+      const end = start + bufferSize;
+      const chunk = data.slice(start, end);
+      chunks.push(chunk);
+    }
+    // console.log(chunks);
+    // Definir o nome do arquivo de saída.
+    await res.attachment("pivot.xlsx");
+
+    // Enviar o workbook como resposta.
+    await res.send(data);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { postInfos, getAll, uploadIctcostmodel, upload };

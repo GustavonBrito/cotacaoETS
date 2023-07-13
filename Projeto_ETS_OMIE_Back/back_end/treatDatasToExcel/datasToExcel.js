@@ -3,8 +3,8 @@ const XlsxPopulate = require("xlsx-populate");
 // let infoFromXml = require("../dataFromXml/dataFromXml");
 // const workbook = require("excel4node/distribution/lib/workbook");
 
-let postInfoFromTreatDatas = async (structure) => {
-  await run(structure);
+let postInfoFromTreatDatas = (structure) => {
+  run(structure);
 };
 
 // Alterar nome de função
@@ -52,6 +52,7 @@ let run = (structure) => {
       // );
       // return workbook;
       // Salva o arquivo pelo backend direto
+
       return workbook.toFileAsync("StructureAndPrizes.xlsx");
     });
   };
